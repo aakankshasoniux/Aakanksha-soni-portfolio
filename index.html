@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aakanksha Soni — Web Designer</title>
+<meta name="description" content="Portfolio of Aakanksha Soni, Web Designer for the City of Santa Clara Department of Parks & Recreation.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">Aakanksha Soni</a>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Web Designer · City of Santa Clara, Parks &amp; Recreation</p>
+      <h1>I design and maintain the web pages that keep Santa Clara's community connected to its parks &amp; recreation programs.</h1>
+      <p class="hero-sub">From aquatics schedules to senior center activities, youth programs to community gardens — I turn department content into clear, accessible pages residents actually use.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">View my work</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-inner">
+      <div class="section-heading">
+        <span class="section-num">01</span>
+        <h2>About</h2>
+      </div>
+      <div class="about-content">
+        <p>
+          I'm a web designer working within the City of Santa Clara's Department of Parks &amp; Recreation,
+          where I design, write, and maintain the pages residents rely on for programs, facilities, and services —
+          from swim schedules and youth center registration to senior activities, community gardens, and
+          volunteer opportunities.
+        </p>
+        <p>
+          My work sits at the intersection of civic communication and everyday usability: taking dense program
+          information and shift schedules and turning them into pages that are easy to scan, easy to update, and
+          easy for every resident to use, regardless of their comfort with technology.
+        </p>
+        <ul class="about-skills">
+          <li>Content design &amp; information architecture</li>
+          <li>Municipal / civic web design</li>
+          <li>Page layout &amp; content maintenance (CMS)</li>
+          <li>Accessibility-minded design</li>
+          <li>Cross-department content coordination</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="section-heading">
+        <span class="section-num">02</span>
+        <h2>Selected Work</h2>
+      </div>
+      <p class="work-intro">
+        A sample of Parks &amp; Recreation program pages I've designed and maintained for the City of Santa Clara.
+        Click any project to see more pages from that section.
+      </p>
+      <div class="grid" id="projectGrid"></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-inner">
+      <div class="section-heading">
+        <span class="section-num">03</span>
+        <h2>Get in touch</h2>
+      </div>
+      <p class="contact-text">
+        Have a project or role you think I'd be a good fit for? I'd love to hear from you.
+      </p>
+      <a class="contact-email" href="mailto:sending.soni@gmail.com">sending.soni@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span id="year"></span> Aakanksha Soni. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#8250;</button>
+    <div class="lightbox-caption">
+      <span id="lightboxTitle"></span>
+      <span class="lightbox-count" id="lightboxCount"></span>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
