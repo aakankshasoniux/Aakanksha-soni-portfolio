@@ -51,8 +51,9 @@ const projects = [
   },
   {
     title: "Roberta Jones Junior Theatre",
-    desc: "Season announcements, show details, and ticketing info for the youth theatre program.",
+    desc: "Redesigned the season page with alternating left/right thumbnails for each show to give the layout a more artistic, less templated feel, and added a dedicated ticket link under every performance for one-click access.",
     images: ["images/rjjt.png", "images/rjjt-current-1.png", "images/rjjt-current-2.png"],
+    liveUrl: "https://www.santaclaraca.gov/our-city/departments-g-z/parks-recreation/recreation-programs/roberta-jones-junior-theatre",
   },
   {
     title: "Senior Center Memberships",
@@ -89,15 +90,20 @@ const projects = [
 const grid = document.getElementById("projectGrid");
 
 projects.forEach((project, index) => {
-  const card = document.createElement("button");
+  const card = document.createElement("div");
   card.className = "card";
-  card.type = "button";
+  card.setAttribute("role", "button");
+  card.setAttribute("tabindex", "0");
   card.setAttribute("aria-label", `View ${project.title} project images`);
 
   const countBadge =
     project.images.length > 1
       ? `<span class="card-count">${project.images.length} pages</span>`
       : "";
+
+  const liveLink = project.liveUrl
+    ? `<a class="card-live-link" href="${project.liveUrl}" target="_blank" rel="noopener noreferrer">View live site &#8599;</a>`
+    : "";
 
   card.innerHTML = `
     <div class="card-thumb">
@@ -107,10 +113,23 @@ projects.forEach((project, index) => {
     <div class="card-body">
       <h3 class="card-title">${project.title}</h3>
       <p class="card-desc">${project.desc}</p>
+      ${liveLink}
     </div>
   `;
 
   card.addEventListener("click", () => openLightbox(index, 0));
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      openLightbox(index, 0);
+    }
+  });
+
+  const liveLinkEl = card.querySelector(".card-live-link");
+  if (liveLinkEl) {
+    liveLinkEl.addEventListener("click", (e) => e.stopPropagation());
+  }
+
   grid.appendChild(card);
 });
 
@@ -123,6 +142,7 @@ const lightboxClose = document.getElementById("lightboxClose");
 const lightboxBackdrop = document.getElementById("lightboxBackdrop");
 const lightboxPrev = document.getElementById("lightboxPrev");
 const lightboxNext = document.getElementById("lightboxNext");
+const lightboxLiveLink = document.getElementById("lightboxLiveLink");
 
 let currentProject = 0;
 let currentImage = 0;
@@ -154,6 +174,13 @@ function renderLightbox() {
   const showNav = project.images.length > 1;
   lightboxPrev.style.display = showNav ? "flex" : "none";
   lightboxNext.style.display = showNav ? "flex" : "none";
+
+  if (project.liveUrl) {
+    lightboxLiveLink.href = project.liveUrl;
+    lightboxLiveLink.style.display = "inline";
+  } else {
+    lightboxLiveLink.style.display = "none";
+  }
 }
 
 function showPrev() {

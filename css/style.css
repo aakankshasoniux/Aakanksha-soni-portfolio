@@ -301,6 +301,17 @@ img { max-width: 100%; display: block; }
   margin: 0;
 }
 
+.card-live-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  text-decoration: none;
+}
+
+.card-live-link:hover { text-decoration: underline; }
+
 /* Contact */
 .contact { padding: 96px 0 104px; text-align: center; }
 
@@ -388,6 +399,16 @@ img { max-width: 100%; display: block; }
   color: rgba(241, 244, 248, 0.6);
   font-size: 0.85rem;
 }
+
+.lightbox-live-link {
+  color: #6fd6d6;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: none;
+}
+
+.lightbox-live-link:hover { text-decoration: underline; }
 
 .lightbox-close {
   position: absolute;
